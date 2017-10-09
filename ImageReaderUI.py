@@ -10,9 +10,11 @@ import tkFileDialog
 from PIL import ImageTk, Image
 import os
 
-GRID_SIZE = 5
-IMAGE_SIZE_X = 150
-IMAGE_SIZE_Y = 150
+
+GRID_X = 12
+GRID_Y = 7
+IMAGE_SIZE_X = 125
+IMAGE_SIZE_Y = 125
 
 global imageList
 global indexNum
@@ -58,9 +60,11 @@ def resetImages():
 
 def setAllImages():
     global indexNum
-    for x in xrange(GRID_SIZE * GRID_SIZE):
-        setImage(x % GRID_SIZE, x / GRID_SIZE)
-        indexNum += 1
+    for y in xrange(GRID_Y):
+		for x in xrange(GRID_X):
+			print(str(x) + ' ' + str(y) + '\n')
+			setImage(x, y)
+			indexNum += 1
 
 def setImage(x, y) :
     global imageList
@@ -98,9 +102,9 @@ def main():
     walkThroughImages(file_path)
 
 # Create buttons and place them in buttonList
-    for y in xrange(GRID_SIZE):
+    for y in xrange(GRID_Y):
         smallList = []
-        for x in xrange(GRID_SIZE):
+        for x in xrange(GRID_X):
             b = Button(master)
             b.imageName = ''
             b.grid(row = y+1, column = x+1)
@@ -117,7 +121,7 @@ def main():
 
 
     bee = Button(master, text="NO MORE BEES", command=resetImages)
-    bee.grid(row=GRID_SIZE+1, column=int(GRID_SIZE / 2) + 1)
+    bee.grid(row=GRID_Y+1, column=int(GRID_X / 2) + 1)
 
     setAllImages()
 
