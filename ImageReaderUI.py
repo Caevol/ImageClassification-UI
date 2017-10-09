@@ -42,7 +42,6 @@ def noBeeInImageAction(button):
 
 def beeInImageAction(x, y):
     button = buttonList[y][x]
-
     image = button.imageName
     if not image == '':
         fileName = os.path.basename(image)
@@ -113,7 +112,7 @@ def main():
 
 # assign each button functionality
     for y in xrange(len(buttonList)):
-        for x in xrange(len(buttonList)):
+        for x in xrange(len(buttonList[y])):
             button = buttonList[y][x]
             button.configure(command = lambda x=x, y=y: beeInImageAction(x, y))
             button.command = lambda x=x, y=y: beeInImageAction(x, y)
