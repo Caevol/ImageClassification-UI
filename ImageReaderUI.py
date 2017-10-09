@@ -11,7 +11,7 @@ from PIL import ImageTk, Image
 import os
 
 
-GRID_X = 12
+GRID_X = 14
 GRID_Y = 7
 IMAGE_SIZE_X = 125
 IMAGE_SIZE_Y = 125
@@ -62,7 +62,6 @@ def setAllImages():
     global indexNum
     for y in xrange(GRID_Y):
 		for x in xrange(GRID_X):
-			print(str(x) + ' ' + str(y) + '\n')
 			setImage(x, y)
 			indexNum += 1
 
